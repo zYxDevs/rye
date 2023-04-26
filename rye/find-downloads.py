@@ -8,7 +8,7 @@ TOKEN = open("token.txt").read().strip()
 RELEASE_URL = "https://api.github.com/repos/indygreg/python-build-standalone/releases"
 HEADERS = {
     "X-GitHub-Api-Version": "2022-11-28",
-    "Authorization": "Bearer " + TOKEN,
+    "Authorization": f"Bearer {TOKEN}",
 }
 FLAVOR_PREFERENCES = [
     "shared-pgo",
@@ -102,7 +102,7 @@ def normalize_triple(triple):
             return
     except IndexError:
         return
-    return "%s-%s" % (arch, platform)
+    return f"{arch}-{platform}"
 
 
 results = {}
